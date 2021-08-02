@@ -1,0 +1,56 @@
+.red-border {
+    border: 1px solid red;
+}
+
+.green-border {
+    border: 1px solid green;
+}
+
+.blue-border {
+    border: 1px solid blue;
+}
+
+.product {
+    display: inline-block;
+    width: 150px;
+    margin: 0 5px 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.5s ease all;
+}
+
+.product:hover {
+    background-color: #fff8e7;
+    border-color: #ffdb83;
+    box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+    transform: translateY(5px);
+}
+
+.product-name {
+    height: 48px;
+}
+
+.product img {
+    width: 100%;
+}
+
+.product-price {
+    font-weight: 600;
+    color: #5abd0a;
+}
+
+.quantity-bar button {
+    width: 31px;
+}
+
+table .total {
+    font-weight: 600;
+}
+
+.quantity-bar input {
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
