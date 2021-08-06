@@ -1,0 +1,17 @@
+<h1>Siparişler</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Sıra</th>
+			<th>Ürün Sayısı</th>
+			<th>Toplam Tutar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let order of orders; let i = index;">
+			<td>{{ i + 1 }}</td>
+			<td>{{order.count}}</td>
+			<td class="text-end">{{order.cost.toFixed(2)}} TL</td>
+		</tr>
+	</tbody>
+</table>

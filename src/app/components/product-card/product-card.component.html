@@ -1,0 +1,12 @@
+<div class="product">
+	<a href="#" [routerLink]="['/products', product.id]">
+		<img [src]="product.photoPath" [alt]="product.name">
+		<div class="product-name">{{product.name}}</div>
+	</a>
+	<div class="product-price">{{product.price.toFixed(2)}} TL</div>
+	<div class="quantity-bar d-flex justify-content-between align-items-center mt-2">
+		<button (click)="decreaseAmount(product)" class="btn btn-sm btn-danger">-</button>
+		<input type="text" [(ngModel)]="product.quantity" (ngModelChange)="updateBasket(product)">
+		<button (click)="increaseAmount(product)" class="btn btn-sm btn-success">+</button>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<div class="d-flex align-items-start" *ngIf="product">
+	<img [src]="product.photoPath" width="300" class="me-3">
+	<div>
+		<h2>{{product.name}}</h2>
+		<p>{{product.info}}</p>
+		<div class="mt-4 price">Sadece {{product.price.toFixed(2)}} TL!</div>
+	</div>
+</div>
+
+<div *ngIf="addedProduct" class="alert alert-success mt-5 p-1">Sepetinize {{addedProduct.name}} ürününden {{addedProduct.quantity}} tane eklendi.</div>
+
+<div class="mt-5">
+	<h3>İlginizi Çekebilecek Ürünler</h3>
+	<app-product-card (productAdded)="showMessage($event)" *ngFor="let product of relatedProducts" [product]="product"></app-product-card>
+</div>
