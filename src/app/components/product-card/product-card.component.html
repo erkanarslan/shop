@@ -1,5 +1,5 @@
 <div class="product">
-	<a href="#" [routerLink]="['/products', product.id]">
+	<a href="#" (click)="setCurrentProduct()" [routerLink]="['/products', product.id]">
 		<img [src]="product.photoPath" [alt]="product.name">
 		<div class="product-name">{{product.name}}</div>
 	</a>

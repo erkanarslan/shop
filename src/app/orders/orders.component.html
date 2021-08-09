@@ -5,6 +5,7 @@
 			<th>Sıra</th>
 			<th>Ürün Sayısı</th>
 			<th>Toplam Tutar</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,6 +13,9 @@
 			<td>{{ i + 1 }}</td>
 			<td>{{order.count}}</td>
 			<td class="text-end">{{order.cost.toFixed(2)}} TL</td>
+			<td class="text-end">
+				<a href="javascript:void(0)" (click)="deleteOrder(order.id)" class="text-danger">Sil</a>
+			</td>
 		</tr>
 	</tbody>
 </table>

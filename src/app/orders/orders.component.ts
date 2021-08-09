@@ -13,7 +13,14 @@ export class OrdersComponent implements OnInit {
 	constructor(private shopService : ShopService) {}
 
 	ngOnInit(): void {
-		this.orders = this.shopService.orders;
+		this.shopService.getOrders().subscribe(orders => this.orders = orders);
+	}
+
+	deleteOrder(orderId : number) : void {
+		this.shopService.deleteOrder(orderId).subscribe(() => {
+			let index = this.orders.findIndex(order => order.id == orderId);
+			this.orders.splice(index, 1);
+		});
 	}
 
 }

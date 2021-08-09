@@ -69,4 +69,8 @@ export class ProductCardComponent implements OnInit {
 		this.addIfNotInBasket(product);
 	}
 
+	setCurrentProduct() : void {
+		this.shopService.currentProduct = this.product;
+	}
+
 }

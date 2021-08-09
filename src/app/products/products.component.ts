@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { products } from "../products";
 import { ShopService, Order, Product } from "../shop.service";
 
 @Component({
@@ -9,13 +8,19 @@ import { ShopService, Order, Product } from "../shop.service";
 })
 export class ProductsComponent {
 
-	products = products;
+	products : Product[] = [];
 	basket! : Product[];
 
-	constructor(private shopService : ShopService) {}
+	constructor(
+		private shopService : ShopService
+	) {}
 
 	ngOnInit() : void {
 		this.basket = this.shopService.basket;
+
+		this.shopService.getProducts().subscribe(products => {
+			this.products = products
+		});
 	}
 
 	getTotal() : number {
@@ -34,12 +39,12 @@ export class ProductsComponent {
 			cost : this.getTotal()
 		};
 
-		this.shopService.orders.push(order);
-
-		for(let item of this.basket) {
-			item.quantity = 0;
-		}
-		this.basket.length = 0;
+		this.shopService.createOrder(order).subscribe(order => {
+			for(let item of this.basket) {
+				item.quantity = 0;
+			}
+			this.basket.length = 0;
+		});
 	}
 
 }

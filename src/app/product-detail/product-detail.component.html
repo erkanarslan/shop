@@ -11,5 +11,5 @@
 
 <div class="mt-5">
 	<h3>İlginizi Çekebilecek Ürünler</h3>
-	<app-product-card (productAdded)="showMessage($event)" *ngFor="let product of relatedProducts" [product]="product"></app-product-card>
+	<app-product-card (productAdded)="showMessage($event)" *ngFor="let product of product?.relatedProducts" [product]="product"></app-product-card>
 </div>
