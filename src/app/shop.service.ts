@@ -51,6 +51,14 @@ export class ShopService {
 	deleteOrder(orderId : number) : Observable<void> {
 		return this.http.delete<void>("/api/orders/" + orderId);
 	}
+
+	getProfile() : Observable<Profile> {
+		return this.http.get<Profile>("/api/profile");
+	}
+
+	updateProfile(profile : Profile) : Observable<void> {
+		return this.http.put<void>("/api/profile", profile);
+	}
 }
 
 export type Order = {
@@ -70,3 +78,14 @@ export type Product = {
 	related : number[],
 	relatedProducts? : Product[]
 }
+
+export type Profile = {
+	name : string,
+	phone : string,
+	address : {
+		address : string,
+		province : string,
+		county : string
+	},
+	receiveSMS : boolean
+};

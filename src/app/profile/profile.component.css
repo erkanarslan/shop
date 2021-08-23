@@ -1,0 +1,9 @@
+td:first-child {
+	font-weight: 600;
+	width: 150px;
+}
+
+input.ng-invalid {
+	background: #e022;
+	border-color: #e02;
+}
