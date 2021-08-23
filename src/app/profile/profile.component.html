@@ -22,42 +22,42 @@
 		<button class="btn btn-sm btn-success" (click)="edit()">Düzenle</button>
 	</div>
 	<div class="col-sm-6">
-		<form *ngIf="formVisible" #formControl="ngForm">
+		<form *ngIf="formVisible" [formGroup]="form">
 			<div class="mb-3">
 				<label for="name" class="form-label">Adınız</label>
-				<input type="text" class="form-control" id="name" [(ngModel)]="form.name" name="name" required #name="ngModel">
+				<input type="text" class="form-control" id="name" formControlName="name">
 			</div>
 			<div class="mb-3">
 				<label for="phone" class="form-label">Telefonunuz</label>
-				<input type="text" class="form-control" id="phone" [(ngModel)]="form.phone" name="phone" pattern="05\d{2} \d{3} \d{4}" placeholder="05xx xxx xxxx" required>
+				<input type="text" class="form-control" id="phone" placeholder="05xxxxxxxxx" formControlName="phone">
 			</div>
 			<h4>Adresiniz</h4>
-			<div class="row mb-3">
+			<div class="row mb-3" formGroupName="address">
 				<div class="col-sm-6">
 					<label for="address" class="form-label">Adres</label>
-					<input type="text" class="form-control" id="address" [(ngModel)]="form.address.address" name="address" required>
+					<input type="text" class="form-control" id="address" formControlName="address">
 				</div>
 				<div class="col-sm-3">
 					<label class="form-label">İl</label>
-					<select class="form-select" [(ngModel)]="form.address.province" (ngModelChange)="cityChanged($event)" name="province">
+					<select class="form-select" formControlName="province">
 						<option *ngFor="let province of provinces" [ngValue]="province">{{province}}</option>
 					</select>
 				</div>
 				<div class="col-sm-3">
 					<label class="form-label">İlçe</label>
-					<select class="form-select" [(ngModel)]="form.address.county" name="county">
+					<select class="form-select" formControlName="county">
 						<option *ngFor="let county of counties" [ngValue]="county">{{county}}</option>
 					</select>
 				</div>
 			</div>
 			<div class="form-check mb-3">
-				<input class="form-check-input" type="checkbox" id="receiveSMS" [(ngModel)]="form.receiveSMS" name="receiveSMS">
+				<input class="form-check-input" type="checkbox" id="receiveSMS" formControlName="receiveSMS">
 				<label class="form-check-label" for="receiveSMS">
 					SMS bildirimlerini almak istiyorum.
 				</label>
 			</div>
-			<div class="alert alert-danger p-1" *ngIf="name.invalid">Ad alanı boş bırakılamaz.</div>
-			<div class="alert alert-danger p-1" *ngIf="formControl.invalid">Form hatalı. Kontrol edip tekrar deneyin.</div>
+			<div class="alert alert-danger p-1" *ngIf="form.controls.name.invalid">Ad alanı boş bırakılamaz.</div>
+			<div class="alert alert-danger p-1" *ngIf="form.invalid">Form hatalı. Kontrol edip tekrar deneyin.</div>
 			<button type="button" class="btn btn-light me-3" (click)="cancel()">İptal</button>
 			<button type="button" class="btn btn-success me-3" (click)="save()">Kaydet</button>
 		</form>
