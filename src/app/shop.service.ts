@@ -30,6 +30,7 @@ export class ShopService {
 	createOrder(order : Order) : Observable<Order> {
 		return this.http.post<Order>("/api/orders", order).pipe(
 			tap(order => {
+				order.createdAt = new Date(order.createdAt);
 				if(this.orders) {
 					this.orders.push(order);
 				}
@@ -64,7 +65,8 @@ export class ShopService {
 export type Order = {
 	id? : number,
 	count : number,
-	cost : number
+	cost : number,
+	createdAt? : Date
 }
 
 export type Product = {

@@ -1,7 +1,10 @@
 <div class="row">
 	<div class="col-sm-7">
 		<h1>Ürünler</h1>
-		<app-product-card *ngFor="let item of products" [product]="item"></app-product-card>
+		<div class="mb-3">
+			<input class="form-control short-input" [(ngModel)]="searchText" placeholder="Ara...">
+		</div>
+		<app-product-card *ngFor="let item of products | search : 'name' : searchText" [product]="item"></app-product-card>
 	</div>
 	<div class="col-sm-5">
 		<h1>Sepet</h1>
@@ -29,5 +32,7 @@
 		</table>
 
 		<button class="btn btn-success" (click)="createOrder()">Sipariş Oluştur</button>
+
+		<div appAutoHide [(showWhen)]="orderCreated" class="alert alert-success mt-3">Siparişiniz oluşturuldu. Siparişinizi Siparişler sayfasından görüntüleyebilir veya alışverişe devam edebilirsiniz.</div>
 	</div>
 </div>

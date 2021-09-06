@@ -3,6 +3,7 @@
 	<thead>
 		<tr>
 			<th>Sıra</th>
+			<th>Tarih</th>
 			<th>Ürün Sayısı</th>
 			<th>Toplam Tutar</th>
 			<th></th>
@@ -11,6 +12,7 @@
 	<tbody>
 		<tr *ngFor="let order of orders; let i = index;">
 			<td>{{ i + 1 }}</td>
+			<td>{{order.createdAt | date : "medium" | lowercase}}</td>
 			<td>{{order.count}}</td>
 			<td class="text-end">{{order.cost.toFixed(2)}} TL</td>
 			<td class="text-end">

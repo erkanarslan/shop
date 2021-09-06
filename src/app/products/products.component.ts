@@ -10,6 +10,8 @@ export class ProductsComponent {
 
 	products : Product[] = [];
 	basket! : Product[];
+	orderCreated = false;
+	searchText = "";
 
 	constructor(
 		private shopService : ShopService
@@ -44,6 +46,8 @@ export class ProductsComponent {
 				item.quantity = 0;
 			}
 			this.basket.length = 0;
+
+			this.orderCreated = true;
 		});
 	}
 

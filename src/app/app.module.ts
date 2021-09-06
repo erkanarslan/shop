@@ -10,6 +10,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AutoHideDirective } from './auto-hide.directive';
+import { SpeakDirective } from './speak.directive';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ProfileComponent } from './profile/profile.component';
     OrdersComponent,
     ProductDetailComponent,
     ProductCardComponent,
-    ProfileComponent
+    ProfileComponent,
+    AutoHideDirective,
+    SpeakDirective,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
